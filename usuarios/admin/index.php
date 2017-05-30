@@ -4,6 +4,9 @@ require_once('../../cp/conexion.php');
 $sql = "SELECT * FROM usuarios WHERE activo = 1";
 $consulta = $conexion->query($sql);
 
+
+
+
 ?>
 
 
@@ -37,10 +40,10 @@ $consulta = $conexion->query($sql);
 				<form action="php/crear.php" method="POST">
 					<div class="row">
 						
-							<input type="text" name="nick" plceholder="escribe un nick">
+							<input type="text" name="nick" placeholder="escribe un nick">
 						
 							<select name="rol">
-								<option value="admnin">ADMIN</option>
+								<option value="admsin">ADMIN</option>
 								<option value="tecnico">TECNICO</option>
 								<option value="estandar">ESTANDAR</option>
 							</select>	
@@ -70,8 +73,8 @@ $consulta = $conexion->query($sql);
 					<td><?= $datos->nick; ?></td>
 					<td><?= $datos->clave; ?></td>
 					<td><?= $datos->rol; ?></td>
-					<td><a href="editar.php?dato=<?= $datos->id_usuario; ?>" class="btn btn-warning"><i class="fa fa-pencil-square" ></i></a>
-						<a href="eliminar.php?dato=<?= $datos->id_usuario; ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a></td>
+					<td><a href="php/editar.php?dato=<?= $datos->id_usuario; ?>" class="btn btn-warning"><i class="fa fa-pencil-square" ></i></a>
+						<a href="php/eliminar.php?dato=<?= $datos->id_usuario; ?>" class="btn btn-danger"><i class="fa fa-trash"></i></a></td>
 				</tr>
 				<?php } ?>
 			</tbody>
