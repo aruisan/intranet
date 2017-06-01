@@ -12,30 +12,18 @@ $('#usuarios').click(function(event){event.preventDefault(); cargarUsuarios(); }
 
  function cargarNoticias()
  {
- 	var url = "pages/noticias.php";
-	$.ajax(
-		{
-	    	type: "POST",
-	        url: url,
-	          success: function(data)
-	        { 
-	        	console.log(data);
-	        	$('#page-wrapper').html(data);
-	  		}
-		});
+ 	var url = "layouts/noticias/index.php";
+	$.post( url, function(data){
+	$('#page-wrapper').html(data);
+	});
+	
  }
 
 
  function cargarUsuarios()
  {
- 	var url = "pages/usuarios.php";
-	$.ajax(
-		{
-	    	type: "POST",
-	        url: url,
-	          success: function(data)
-	        { 
-	        	$('#page-wrapper').html(data);
-	  		}
-		});
+ 	var url = "layouts/usuarios/index.php";
+	$.post( url, function(data){
+	 $('#page-wrapper').html(data);
+	});
  }
