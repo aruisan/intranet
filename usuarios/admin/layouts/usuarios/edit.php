@@ -16,6 +16,16 @@ $_SESSION['clave']= $datos->clave;
 
 <!-- Optional theme -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	
+			<div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header"><a href="" class="usuarios" >Usuarios</a>/<small><label >Editar Usuario</label></small></h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+
+
 	<br><br>
 	<div class="container">
 		<div class="row">
@@ -42,6 +52,7 @@ $_SESSION['clave']= $datos->clave;
 
 	<script type="text/javascript">
 		$('#updateUsuarios').click(function(){ updateUsuarios();  });
+		$('.usuarios').click(function(event){event.preventDefault(); cargarUsuarios(); });
 
 
 	function updateUsuarios()

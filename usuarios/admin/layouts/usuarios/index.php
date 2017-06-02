@@ -6,8 +6,15 @@ $consulta = $conexion->query($sql);
 
 
 ?>
+			<div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header">Usuarios/<small><label ></label></small></h1>
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
 
-
+	
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-2 col-md-2 col-lg-4"></div>

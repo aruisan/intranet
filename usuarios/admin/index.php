@@ -73,13 +73,13 @@
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
                         <li>
-                            <a href="" id="noticias"><i class="fa fa-indent fa-fw"></i> Noticia </a>
+                            <a href="" class="noticias"><i class="fa fa-indent fa-fw"></i> Noticia </a>
                         </li>
                         <li>
-                            <a href="" id="usuarios"><i class="fa  fa-users fa-fw"></i> Usuarios </a>
+                            <a href="" class="usuarios"><i class="fa  fa-users fa-fw"></i> Usuarios </a>
                         </li>
                         <li>
-                            <a href=""><i class="fa fa-archive fa-fw"></i> Archivos </a>
+                            <a href="" class="archivos"><i class="fa fa-archive fa-fw"></i> Archivos </a>
                         </li>
                     </ul>
                 </div>
