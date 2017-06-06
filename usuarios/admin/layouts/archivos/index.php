@@ -20,19 +20,22 @@ $consulta = $conexion->query($sql);
 		<div class="row">
 			<div class="col-md-3"></div>
 			<div class="col-md-6">
+				<form id="formArchivo"  enctype="multipart/form-data" method="POST" action="../../core/crud/guardar.php">
 						<div class="form-group">
     						<label for="exampleInputEmail1">Nombre de archivo</label>
-    						<input type="text" class="form-control" id="nom">
+    						<input type="text" class="form-control" id="nom" name="nom">
     						<small class="form-text text-muted">Nombre de el ejecutable o manual a subir</small>
   						</div>
   						<div class="form-group">
-    						<input type="file" id="archivo" >
+    						<input type="file" id="archivo" name="archivo">
     						<small class="form-text text-muted">Busca el ejecutable o manual a subir</small>
   						</div>
 
 						  <div class="form-group">
-							<button class="btn btn-primary" id="storeArchivo">Subir</button>						  	
+						  	<input type="submit" class="btn btn-primary" value="Subir">
+													  	
 						  </div>
+				</form>
 			</div>
 		</div>
 	</div>	
@@ -62,8 +65,9 @@ $consulta = $conexion->query($sql);
 <script type="text/javascript">
 
 	$('.archivos').click(function(event){event.preventDefault(); cargarArchivos(); });	
-	$('indexArchivos').click(function(){  var id = $(this).attr('id'); indexArchivos(id); })
-	$('#storeProyecto').click(function(){  storeProyecto(); });
+	//$("#formArchivo").on("submit", function(e){e.preventDefault();   alert('dieron click'); storeProyecto2();});	
+	//$('indexArchivos').click(function(){  var id = $(this).attr('id'); indexArchivos(id); })
+
 	$('.editProyecto').click(function(){  var id = $(this).attr('id'); editProyecto(id); });
 	$('.deleteProyecto').click(function(){  var id = $(this).attr('id'); deleteProyecto(id); });
 
@@ -71,11 +75,11 @@ $consulta = $conexion->query($sql);
 	////function de crud/////
 
 
-	function storeUsuario()
+	function storeProyecto()
 	{
-		var url = "core/controller/usuariosController.php";
+		var url = "core/controller/archivosController.php";
 		var metodo = "store";
-		var nick = $('#nick').val();
+		var nom = $('#nom').val();
 		var rol = $('#rol').val();
 		$.post( url,{metodo:metodo, nick:nick, rol:rol }, function(data)
                     {
@@ -89,6 +93,31 @@ $consulta = $conexion->query($sql);
 
 	}
 
+	$('#storeArchivo2').click(function(event){  
+		event.preventDefault();
+		var url = "core/controller/archivosController.php";
+		var metodo ="metodo";
+		var formData = new FormData(document.getElementById("formArchivo"));
+			formData.append("metodo", metodo);
+
+
+
+		$.ajax({
+	            url: url,
+	            type: "post",
+    			dataType: "html",
+    			data: formData,
+    			cache: false,
+    			contentType: false,
+    			processData: false
+	              success: function (data) 
+	              {
+	                 console.log(data);
+	                 alert(data)
+	              }
+	             });
+
+	 });
 
 
 	function deleteUsuario(id)
@@ -117,7 +146,24 @@ $consulta = $conexion->query($sql);
 	}
 
 	
-
+        $("#storeArchivo").click( function(event){
+            event.preventDefault();
+            var f = $(this);
+            var formData = new FormData(document.getElementById("formArchivo"));
+            formData.append("dato", "valor");
+            //formData.append(f.attr("name"), $(this)[0].files[0]);
+            $.ajax({
+                url: "core/controller/archivosController.php",
+                type: "post",
+                data: formData,
+                cache: false,
+                contentType: false,
+	     		processData: false
+            })
+                .done(function(res){
+                    console.log(res);
+                });
+        });
 
 </script>
 
